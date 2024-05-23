@@ -1,0 +1,50 @@
+{{>layouts/header}}
+
+<h2>Employee Details</h2>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Field</th>
+        <th scope="col">Value</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th>EMPNO</th>
+        <td>{{emp.empno}}</td>
+    </tr>
+    <tr>
+        <th>ENAME</th>
+        <td>{{emp.ename}}</td>
+    </tr>
+    <tr>
+        <th>JOB</th>
+        <td>{{emp.job}}</td>
+    </tr>
+    <tr>
+        <th>MGR</th>
+        <td>{{#emp.mgr}}{{emp.mgr}}{{/emp.mgr}}{{^emp.mgr}}N/A{{/emp.mgr}}</td>
+    </tr>
+    <tr>
+        <th>HIREDATE</th>
+        <td>{{emp.hiredate}}</td>
+    </tr>
+    <tr>
+        <th>SAL</th>
+        <td>{{emp.sal}}</td>
+    </tr>
+    <tr>
+        <th>COMM</th>
+        <td>{{#emp.comm}}{{emp.comm}}{{/emp.comm}}{{^emp.comm}}N/A{{/emp.comm}}</td>
+    </tr>
+    <tr>
+        <th>DEPTNO</th>
+        <td>{{emp.deptno}}</td>
+    </tr>
+    </tbody>
+</table>
+
+<a href="/emp">Back to Employee List</a>
+
+{{>layouts/footer}}

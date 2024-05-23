@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+<h1>사원 등록</h1>
+<form action="/insert" method="post">
+    <table border="1">
+        <tbody>
+        <tr>
+            <th>사번</th>
+            <td>
+                <input type="text" name="empno" th:value="${empno}" required>
+            </td>
+        </tr>
+        <tr>
+            <th>이름</th>
+            <td>
+                <input type="text" name="ename" th:value="${ename}" required>
+            </td>
+        </tr>
+        <tr>
+            <th>직종</th>
+            <td>
+                <input type="text" name="job" th:value="${job}" required>
+            </td>
+        </tr>
+        <tr>
+            <th>매니저</th>
+            <td>
+                <input type="text" name="mgr" th:value="${mgr}" required>
+            </td>
+        </tr>
+        <tr>
+            <th>입사일</th>
+            <td>
+                <input type="text" name="hiredate" th:value="${hiredate}" required>
+            </td>
+        </tr>
+        <tr>
+            <th>급여</th>
+            <td>
+                <input type="text" name="sal" th:value="${sal}" required>
+            </td>
+        </tr>
+        <tr>
+            <th>보너스</th>
+            <td>
+                <input type="text" name="comm" th:value="${comm}" required>
+            </td>
+        </tr>
+        <tr>
+            <th>부서번호</th>
+            <td>
+                <input type="text" name="deptno" th:value="${deptno}" required>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <button type="submit">등록</button>
+</form>
+</body>
+</html>

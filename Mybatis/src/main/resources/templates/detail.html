@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+<h1>사원 상세 정보</h1>
+<form action="/update" method="post">
+    <table border="1">
+        <tbody>
+        <tr>
+            <th>사번</th>
+            <td>
+                <input type="text" name="empno" th:value="${empDetail.empno}" required>
+            </td>
+        </tr>
+        <tr>
+            <th>이름</th>
+            <td>
+                <input type="text" name="ename" th:value="${empDetail.ename}" required>
+            </td>
+        </tr>
+        <tr>
+            <th>직종</th>
+            <td>
+                <input type="text" name="job" th:value="${empDetail.job}" required>
+            </td>
+        </tr>
+        <tr>
+            <th>매니저</th>
+            <td>
+                <input type="text" name="mgr" th:value="${empDetail.mgr}" required>
+            </td>
+        </tr>
+        <tr>
+            <th>입사일</th>
+            <td>
+                <input type="text" name="hiredate" th:value="${empDetail.hiredate}" required>
+            </td>
+        </tr>
+        <tr>
+            <th>급여</th>
+            <td>
+                <input type="text" name="sal" th:value="${empDetail.sal}" required>
+            </td>
+        </tr>
+        <tr>
+            <th>보너스</th>
+            <td>
+                <input type="text" name="comm" th:value="${empDetail.comm}" required>
+            </td>
+        </tr>
+        <tr>
+            <th>부서번호</th>
+            <td>
+                <input type="text" name="deptno" th:value="${empDetail.deptno}" required>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <button type="submit">수정</button>
+</form>
+<form action="/delete" method="post">
+    <input type="hidden" name="empno" th:value="${empDetail.empno}">
+    <button type="submit">삭제</button>
+</form>
+<a href="/">홈으로</a>
+</body>
+</html>

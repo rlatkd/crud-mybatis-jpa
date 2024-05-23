@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.kosa.Emp_1ProjectMybatis.repository.EmpRepository">
+
+    <select id="findAll">
+        SELECT empno, ename, job, mgr, hiredate, sal, comm, deptno FROM EMP
+    </select>
+
+    <select id="findByEmpno">
+        SELECT empno, ename, job, mgr, hiredate, sal, comm, deptno FROM EMP WHERE empno = #{empno}
+    </select>
+
+    <select id="findByEname">
+        SELECT empno, ename, job, mgr, hiredate, sal, comm, deptno FROM EMP WHERE ename LIKE CONCAT('%', #{ename}, '%')
+    </select>
+
+    <insert id="insert">
+        INSERT INTO EMP (empno, ename, job, mgr, hiredate, sal, comm, deptno)
+        VALUES (#{empno}, #{ename}, #{job}, #{mgr}, #{hiredate}, #{sal}, #{comm}, #{deptno})
+    </insert>
+
+    <delete id="deleteByEmpno">
+        DELETE FROM EMP WHERE empno = #{empno}
+    </delete>
+
+    <update id="update">
+        UPDATE EMP SET ename = #{ename}, job = #{job}, mgr = #{mgr}, hiredate = #{hiredate},
+        sal = #{sal}, comm = #{comm}, deptno = #{deptno} WHERE empno = #{empno}
+    </update>
+
+</mapper>

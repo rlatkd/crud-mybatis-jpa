@@ -1,0 +1,62 @@
+{{>layouts/header}}
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">EMPNO</th>
+        <th scope="col">ENAME</th>
+        <th scope="col">JOB</th>
+        <th scope="col">MGR</th>
+        <th scope="col">HIREDATE</th>
+        <th scope="col">SAL</th>
+        <th scope="col">COMM</th>
+        <th scope="col">DEPTNO</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#empList}}
+        <tr>
+            <th><a href="/emp/{{empno}}">{{empno}}</th>
+            <td>{{ename}}</td>
+            <td>{{job}}</td>
+            <td>{{#mgr}}{{mgr}}{{/mgr}}{{^mgr}}N/A{{/mgr}}</td>
+            <td>{{hiredate}}</td>
+            <td>{{sal}}</td>
+            <td>{{#comm}}{{comm}}{{/comm}}{{^comm}}N/A{{/comm}}</td>
+            <td>{{deptno}}</td>
+            <td>
+                <a href="/emp/edit/{{empno}}" class="btn btn-warning">Edit</a>
+                <button class="btn btn-danger" onclick="deleteEmp({{empno}})">Delete</button>
+            </td>
+        </tr>
+    {{/empList}}
+    </tbody>
+</table>
+
+<a href="/emp/new">New Employee</a>
+
+<script>
+    function deleteEmp(empno) {
+        if (confirm('회원을 삭제하시겠습니까?')) {
+            fetch(`/emp/${empno}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+                    .then(response => {
+                        if (response.ok) {
+                            window.location.reload();
+                        } else {
+                            alert('Failed to delete employee');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('Failed to delete employee');
+                    });
+        }
+    }
+</script>
+
+{{>layouts/footer}}
